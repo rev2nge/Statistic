@@ -1,0 +1,18 @@
+<div class="container">
+  <div *ngFor="let category of categories" class="mb-4">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-circle me-3" (click)="toggleSubcategories(category)">
+        {{ category.subcategories ? '-' : '+' }}
+      </button>
+
+      <a [routerLink]="category.route" class="fw-bold category-name">
+        {{ category.name }}
+      </a>
+    </div>
+
+    <div *ngIf="category.subcategories" class="ms-4 mt-3">
+      <app-category-item *ngFor="let subcategory of category.subcategories" [category]="subcategory"
+        (toggle)="toggleSubcategories($event)" class="d-block"></app-category-item>
+    </div>
+  </div>
+</div>

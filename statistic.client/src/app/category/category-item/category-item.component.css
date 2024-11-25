@@ -1,0 +1,14 @@
+* {
+  text-decoration: none;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3f67c6;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  margin-top: 15px;
+}

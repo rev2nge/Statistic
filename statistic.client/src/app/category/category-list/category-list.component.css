@@ -1,0 +1,28 @@
+* {
+  text-decoration: none;
+}
+
+.card {
+  border-radius: 1px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-title a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3f67c6;
+}
+
+.card-title a:hover {
+  color: #3f67c6;
+  text-decoration: underline;
+}
+
+.container {
+  margin-top: 100px;
+  font-family: Arial, sans-serif;
+}

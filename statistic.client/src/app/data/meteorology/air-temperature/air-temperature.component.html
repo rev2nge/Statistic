@@ -1,0 +1,64 @@
+<h1 class="h1-main">Среднемесячная температура воздуха, 2002-2023 гг.</h1>
+
+<div>
+  <div class="main-container">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Месяц</h1>
+        </div>
+        <div class="card-body">
+          <div class="btn-body">
+            <button class="btn" (click)="selectAllMonths()">Выбрать всё</button>
+            <button class="btn" (click)="deselectAllMonths()">Отклонить всё</button>
+          </div>
+          <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="monthSearch" />
+          <div class="form-group">
+            <select class="form-select" multiple size="10" [(ngModel)]="filters.month">
+              <option *ngFor="let month of filteredMonths()" [ngClass]="{'selected-option': isSelectedSec(month)}">
+                {{ month }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-header bg-light">
+          <h1 class="card-title mb-3">Год</h1>
+        </div>
+        <div class="card-body">
+          <div class="btn-body">
+            <button class="btn " (click)="selectAllYears()">Выбрать всё</button>
+            <button class="btn" (click)="deselectAllYears()">Отклонить всё</button>
+          </div>
+          <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="yearsSearch" />
+          <div class="form-group">
+            <select class="form-select" multiple size="10" [(ngModel)]="filters.year">
+              <option *ngFor="let year of filteredYears()" [ngClass]="{'selected-option': isSelected(year)}">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="show-table-btn btn" (click)="onFilterChange()">Показать результат</button>
+  <button class="export-btn btn btn-excel" (click)="exportToExcel()">Excel</button>
+
+  <div class="result-container" *ngIf="showTable">
+    <div class="result-card">
+      <div class="result-card-body">
+        <div class="result-data-row" *ngFor="let item of meteorologyData">
+          <span class="result-year">{{ item.year }}</span>
+          <span class="result-month">{{ item.month }}</span>
+          <span class="result-value">{{ item.airTemperature }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
